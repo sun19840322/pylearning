@@ -22,13 +22,19 @@ def bubble_sort(collection):
     [-23,-4,0,6,34]
     """
     length = len(collection)
+    print ('length=', length)
     for i in range(length-1):
+        print ('i=', i)
         swapped = False
         for j in range(length-1-i):
+            print('j=', j)
             if collection[j] > collection[j+1]:
                 swapped = True
+                print ('swap', collection[j], ":", collection[j+1])
                 collection[j], collection[j+1] = collection[j+1], collection[j]
-        if not swapped: break  # Stop iteration if the collection is sorted.
+                print ('newlist=', collection)
+        if not swapped:
+            break  # Stop iteration if the collection is sorted.
     return collection
 
 
@@ -39,4 +45,5 @@ if __name__ == '__main__':
         raw_input = input  # Python 3
     user_input = raw_input('Enter numbers separated by a comma:').strip()
     unsorted = [int(item) for item in user_input.split(',')]
+    print (unsorted)
     print(*bubble_sort(unsorted), sep=',')
